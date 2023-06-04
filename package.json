@@ -1,0 +1,15 @@
+{
+  "name": "codewars-solutions",
+  "version": "1.0.0",
+  "description": "Hello! This project is a collection of my solutions to Codewars problems. I use the Jest library to write and run tests for these problems. This allows me to verify the correctness of my solutions and ensure they meet the expected results.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.5.0"
+  }
+}
