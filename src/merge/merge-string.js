@@ -1,28 +1,17 @@
 function isMerge(s, part1, part2) {
-    if (part1.length + part2.length !== s.length) {
-        return false;
+    if (s.length === 0) {
+        return part1.length === 0 && part2.length === 0;
+    }
+    if (part1.length > 0 && s[0] === part1[0] && isMerge(s.slice(1), part1.slice(1), part2)) {
+        return true;
     }
 
-    let i = 0;
-    let j = 0;
-    let k = 0;
-
-    while (i < s.length) {
-        if (j < part1.length && s[i] === part1[j]) {
-            j++;
-        } else if (k < part2.length && s[i] === part2[k]) {
-            k++;
-        } else {
-            return false;
-        }
-        i++;
+    if (part2.length > 0 && s[0] === part2[0] && isMerge(s.slice(1), part1, part2.slice(1))) {
+        return true;
     }
 
-    return j === part1.length && k === part2.length;
+    return false;
 }
+module.exports = isMerge;
 
-const s = "Bananas from Bahamas";
-const part1 = "Bahas";
-const part2 = "Bananas from am";
-
-console.log(isMerge(s, part1, part2)); // Output: true
+//Если первый символ строки s совпадает с первым символом строки part1 или part2, рекурсивно вызываем функцию isMerge с остатком строки s
